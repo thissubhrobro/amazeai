@@ -7,9 +7,9 @@ import { handleError } from "../utils";
 
 // we have to create a user to sync with the clerk user and the database user,hence we use webhook
 // webhook based on event triggering
-// here clerk will trigger the event to use webhook and request the payload thus triggering event and after event processing and then save tp the mongo database
+// here clerk will trigger the event to use webhook and request the payload thus triggering event and after event processing and then save to the mongo database
 
-// now to use webhookand clerk's through create mongodb user we need to expose te endpoints so that clerk can run actions and insert the user into the database,so we need to create repository and deploy
+// now to use webhook and clerk's through create mongodb user we need to expose te endpoints so that clerk can run actions and insert the user into the database,so we need to create repository and deploy
 
 // CREATE
 export async function createUser(user: CreateUserParams) {

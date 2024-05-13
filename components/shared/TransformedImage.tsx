@@ -74,6 +74,7 @@ const TransformedImage = ({
                 width={50}
                 height={50}
               />
+              <p className="text-white/80">Please Wait...</p>
             </div>
           )}
         </div>

@@ -163,19 +163,19 @@ export const transformationTypes = {
 
 export const aspectRatioOptions = {
   "1:1": {
-    aspectRatio: "1:1",
+    aspectRation: "1:1",
     label: "Square (1:1)",
     width: 1000,
     height: 1000,
   },
   "3:4": {
-    aspectRatio: "3:4",
+    aspectRation: "3:4",
     label: "Standard Portrait (3:4)",
     width: 1000,
     height: 1334,
   },
   "9:16": {
-    aspectRatio: "9:16",
+    aspectRation: "9:16",
     label: "Phone Portrait (9:16)",
     width: 1000,
     height: 1778,
@@ -184,7 +184,7 @@ export const aspectRatioOptions = {
 
 export const defaultValues = {
   title: "",
-  aspectRatio: "",
+  aspectRation: "",
   color: "",
   prompt: "",
   publicId: "",

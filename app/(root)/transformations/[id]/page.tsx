@@ -7,12 +7,13 @@ import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.action";
 import { getImageSize } from "@/lib/utils";
 import { auth } from "@clerk/nextjs/server";
-// import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
   const image = await getImageById(id);
+  console.log("image get by id===>", image);
 
   return (
     <>
@@ -46,12 +47,14 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
           </>
         )}
 
-        {image.aspectRatio && (
+        {image.aspectRation && (
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
             <div className="p-14-medium md:p-16-medium flex gap-2">
               <p className="text-dark-600">Aspect Ratio:</p>
-              <p className=" capitalize text-purple-400">{image.aspectRatio}</p>
+              <p className=" capitalize text-purple-400">
+                {image.aspectRation}
+              </p>
             </div>
           </>
         )}
@@ -91,7 +94,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
               </Link>
             </Button>
 
-            {/* <DeleteConfirmation imageId={image._id} /> */}
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>

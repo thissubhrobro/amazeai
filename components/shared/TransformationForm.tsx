@@ -34,7 +34,7 @@ import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 
 export const formSchema = z.object({
   title: z.string(),
-  aspectRatio: z.string().optional(),
+  aspectRation: z.string().optional(),
   color: z.string().optional(),
   prompt: z.string().optional(),
   publicId: z.string(),
@@ -62,7 +62,7 @@ const TransformationForm = ({
     data && action === "Update"
       ? {
           title: data?.title,
-          aspectRatio: data?.aspectRatio,
+          aspectRation: data?.aspectRation,
           color: data?.color,
           prompt: data?.prompt,
           publicId: data?.publicId,
@@ -94,7 +94,7 @@ const TransformationForm = ({
         config: transformationConfig,
         secureURL: image?.secureURL,
         transformationURL,
-        aspectRatio: values.aspectRatio,
+        aspectRation: values.aspectRation,
         prompt: values.prompt,
         color: values.color,
       };
@@ -141,7 +141,7 @@ const TransformationForm = ({
     // ({}) =>for immediate return we use the expression
     setImage((prev: any) => ({
       ...prev,
-      aspectRatio: imageSize.aspectRatio,
+      aspectRation: imageSize.aspectRation,
       width: imageSize.width,
       height: imageSize.height,
     }));
@@ -164,7 +164,7 @@ const TransformationForm = ({
           [fieldName === "prompt" ? "prompt" : "to"]: value,
         },
       }));
-    }, 1000);
+    }, 1000)();
     // debounce waits for a specific given time to submit the keystroke and show the input value instead of sending each and every key press to the server like cloudinary,to manage the problem we use debounce
 
     return onChangeField(value);
@@ -201,11 +201,12 @@ const TransformationForm = ({
         {type === "fill" && (
           <CustomField
             control={form.control}
-            name="aspectRatio"
+            name="aspectRation"
             formLabel="Aspect Ratio"
             className="w-full"
             render={({ field }) => (
               <Select
+                value={field.value}
                 onValueChange={(value) =>
                   onSelectFieldHandler(value, field.onChange)
                 }

@@ -10,7 +10,7 @@ export type IImage = {
   height?: number;
   config?: object;
   transformationUrl?: string;
-  aspectRatio?: string;
+  aspectRation?: string;
   color?: string;
   prompt?: string;
   author: {

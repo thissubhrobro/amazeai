@@ -11,6 +11,8 @@ import { handleError } from "../utils";
 
 // now to use webhook and clerk's through create mongodb user we need to expose te endpoints so that clerk can run actions and insert the user into the database,so we need to create repository and deploy
 
+// the functions that we create in the server is known as server actions
+
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
@@ -85,6 +87,7 @@ export async function updateCredits(userId: string, creditFee: number) {
 
     const updatedUserCredits = await User.findOneAndUpdate(
       { _id: userId },
+      // here we are increamenting the creditFee every time by -1
       { $inc: { creditBalance: creditFee } },
       { new: true }
     );

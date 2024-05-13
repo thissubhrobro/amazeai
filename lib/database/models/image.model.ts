@@ -1,6 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 export type IImage = {
+  _id: null | undefined;
   title: string;
   transformationType: string;
   publicId: string;
@@ -25,11 +26,11 @@ const ImageSchema = new Schema({
   title: { type: String, required: true },
   transformationType: { type: String, required: true },
   publicId: { type: String, required: true },
-  secureUrl: { type: URL, required: true },
+  secureURL: { type: String, required: true },
   width: { type: Number },
   height: { type: Number },
   config: { type: Object },
-  transformationURL: { type: URL },
+  transformationURL: { type: String },
   aspectRation: { type: String },
   color: { type: String },
   prompt: { type: String },

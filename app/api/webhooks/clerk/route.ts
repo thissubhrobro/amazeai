@@ -59,9 +59,10 @@ export async function POST(req: Request) {
 
   // CREATE
   if (eventType === "user.created") {
+    // here id is the clerkId,that is used while logging in
     const { id, email_addresses, image_url, first_name, last_name, username } =
       evt.data;
-
+    // mongodb schema data while creating user
     const user = {
       clerkId: id,
       email: email_addresses[0].email_address,
@@ -80,6 +81,7 @@ export async function POST(req: Request) {
           userId: newUser._id,
         },
       });
+      //   setting data in clerk using userId that is created from mongo database
     }
 
     return NextResponse.json({ message: "OK", user: newUser });
